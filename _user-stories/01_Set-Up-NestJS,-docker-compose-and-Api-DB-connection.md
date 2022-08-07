@@ -19,4 +19,3 @@ Via Docker-Compose the NestJS Backend and the Postgres Database should be able t
 2. NestJS should be startable with docker-compose
 3. NestJS should connect to the Postgres Database
 4. Able to query the NestJS API with Postman
-5. 
