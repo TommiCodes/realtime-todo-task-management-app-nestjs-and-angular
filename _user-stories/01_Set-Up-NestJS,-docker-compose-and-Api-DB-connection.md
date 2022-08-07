@@ -15,7 +15,7 @@ The NestJS Backend should be startable with a dockerfile and connect to a Postgr
 Via Docker-Compose the NestJS Backend and the Postgres Database should be able to be spinned up.
 
 ## Acceptance Criteria:
-1. Setup NestJS
-2. NestJS should be startable with docker-compose
-3. NestJS should connect to the Postgres Database
-4. Able to query the NestJS API with Postman
+1. (finished) Setup NestJS
+2. (finished) NestJS should be startable with docker-compose
+3. (finished) NestJS should connect to the Postgres Database
+4. (finished) Able to query the NestJS API with Postman
