@@ -1,4 +1,5 @@
 # realtime-todo-task-management-app-nestjs-and-angular
+*Please Remember that this is a hobby project and done in the freetime*
 
 ## Requirements
 1. Docker
