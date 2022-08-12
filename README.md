@@ -46,4 +46,16 @@ TODO: Health check with Terminus for Database
 
 ### Angular Frontend
 1. Install the Angular CLI globally `npm install -g @angular/cli`
-2. 
+2. Create the Angular Frontend with `ng new angular-frontend`
+3. Make sure to install all deps: `cd angular-frontend` and `npm install`
+4. Set Up our main modules
+   1. Create Public Module (here we handle Register and Login of the users): `ng generate module public`
+   2. Create Private Module (handles Stuff after login, jwt protected): `ng generate module private`
+3. Create dir `/models` and dir `/services`
+4. Create a Service to get a value from the todo-api: `ng generate service test` and modify the return from the backend as Json
+5. Create a proxy.conf to proxy all requests when running `ng serve` for `/api` against  
+   our in container todo-api under `http://api:3000` & add it to our angular.json
+6. Add a Dockerfile & then add the service to our docker-compose file
+7. Fix the start script in the angular package.json to run inside a container to `"start": "ng serve --host=0.0.0.0 --port 4200"`  
+   Explanation: https://stackoverflow.com/questions/46778868/ng-serve-not-working-in-docker-container
+   Other solution could be to use for ex. nginx
