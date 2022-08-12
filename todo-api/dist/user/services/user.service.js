@@ -16,7 +16,7 @@ let UserService = class UserService {
         return `This action returns all user`;
     }
     findOne(id) {
-        return `This action returns a #${id} user`;
+        return { title: `This action returns a #${id} user` };
     }
     update(id, updateUserDto) {
         return `This action updates a #${id} user`;
