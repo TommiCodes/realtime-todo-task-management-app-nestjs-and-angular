@@ -25,7 +25,7 @@ services:
       target: development
     volumes:
       - ./todo-api:/thomas/src/app
-      - /thomas/src/app/node_modules/
+      - /thomas/src/app/node_modules
     # dev mode: npm run start:dev / debug: npm run start:debug
     command: npm run start:dev
     depends_on:

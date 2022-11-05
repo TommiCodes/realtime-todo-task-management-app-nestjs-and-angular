@@ -12,6 +12,11 @@ Additional Docker Commands:
 2. Run services with rebuild: `docker-compose up -d --build api frontend postgres postgres_admin`
 3. Remove all images: `docker rmi -f $(docker images -a -q)`
 4. Remove all containers: `docker rm -vf $(docker ps -a -q)`
+5. Remove all Volumes: `docker-compose down -v`
+
+
+## Troubleshooting
+1. If your container says for backend: 'Can not find Module: "XXX"' then `cd  todo-api` and `npm run build`
 
 ## Setup steps in detail
 
@@ -57,8 +62,9 @@ TODO: Health check with Terminus for Database
 5. Create a proxy.conf to proxy all requests when running `ng serve` for `/api` against  
    our in container todo-api under `http://api:3000` & add it to our angular.json
 6. Add a Dockerfile & then add the service to our docker-compose file
-7. Fix the start script in the angular package.json to run inside a container to `"start": "ng serve --host=0.0.0.0 --port 4200"`  
+7. Fix the start script in the angular package.json to run inside a container to `"start": "ng serve --host=0.0.0.0 --port 4200 --poll 2000"`  
    Explanation: https://stackoverflow.com/questions/46778868/ng-serve-not-working-in-docker-container
+   The "--poll 2000" is needed to get hot reload working
    Other solution could be to use for ex. nginx
 
 ### [Video 3] NestJS User Api (Register and Login)
@@ -80,4 +86,3 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 12. Create the dtos for login and register
 13. Create the login and register Endpoints and Service Functions
 14. Run the Api with docker and test it with Postman
-
