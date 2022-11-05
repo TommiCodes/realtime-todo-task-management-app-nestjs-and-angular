@@ -1,14 +1,12 @@
 import { UserService } from '../services/user.service';
-import { CreateUserDto } from '../dto/create-user.dto';
-import { UpdateUserDto } from '../dto/update-user.dto';
+import { DtoHelperService } from "../dto/dto-helper.service";
+import { LoginResponseI, UserI } from "../user.interfaces";
+import { CreateUserDto } from "../dto/create-user.dto";
+import { LoginUserDto } from "../dto/login-user.dto";
 export declare class UserController {
     private readonly userService;
-    constructor(userService: UserService);
-    create(createUserDto: CreateUserDto): string;
-    findAll(): string;
-    findOne(id: string): {
-        title: string;
-    };
-    update(id: string, updateUserDto: UpdateUserDto): string;
-    remove(id: string): string;
+    private dtoHelperService;
+    constructor(userService: UserService, dtoHelperService: DtoHelperService);
+    create(createUserDto: CreateUserDto): Promise<UserI>;
+    login(loginUserDto: LoginUserDto): Promise<LoginResponseI>;
 }
