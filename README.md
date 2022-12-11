@@ -86,3 +86,19 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 12. Create the dtos for login and register
 13. Create the login and register Endpoints and Service Functions
 14. Run the Api with docker and test it with Postman
+
+### [Video 4] Angular Login & Register Component & Connect with Api
+
+1. Install Angular Material: `ng add @angular/material`
+2. Remove old TestService
+3. Create Diretories in `angular-frontend/src/app/public`: `/validators`, `/components`, `/services`
+4. Create a `public-routing.module.ts` for all routes in our public module
+5. Create a `public.interfaces.ts` for our interfaces
+5. Create the components `LoginComponent` and `RegisterComponent` via the cli with the command `ng generate component login` and `ng generate component register`
+6. Update the "public-routing.module.ts" and the "app-routing.module.ts"
+7. Create the Service `UserService` to make the login and register requests against the api `ng generate service user`
+8. Add the login and register functions to the UserService
+9. Import the `MatCardModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule` in the PublicModule
+10. Import the `MatSnackbarModule` in the AppModule
+11. Create the html, scss and logic for the LoginComponent
+12. Cretate the html, scss and logic for the RegisterComponent
