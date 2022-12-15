@@ -54,6 +54,13 @@ let UserService = class UserService {
             throw new common_1.HttpException('User not found', common_1.HttpStatus.NOT_FOUND);
         }
     }
+    async getOneById(id) {
+        return this.userRepository.findOneOrFail({
+            where: {
+                id: id
+            }
+        });
+    }
     async findByEmail(email) {
         return this.userRepository.findOne({
             where: { email },

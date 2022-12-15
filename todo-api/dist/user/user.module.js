@@ -23,7 +23,8 @@ UserModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([user_entity_1.User])
         ],
         controllers: [user_controller_1.UserController],
-        providers: [user_service_1.UserService, dto_helper_service_1.DtoHelperService]
+        providers: [user_service_1.UserService, dto_helper_service_1.DtoHelperService],
+        exports: [user_service_1.UserService]
     })
 ], UserModule);
 exports.UserModule = UserModule;

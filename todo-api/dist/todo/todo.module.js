@@ -8,10 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoModule = void 0;
 const common_1 = require("@nestjs/common");
+const todo_gateway_1 = require("./gateway/todo.gateway");
+const user_module_1 = require("../user/user.module");
+const auth_module_1 = require("../auth/auth.module");
 let TodoModule = class TodoModule {
 };
 TodoModule = __decorate([
-    (0, common_1.Module)({})
+    (0, common_1.Module)({
+        imports: [user_module_1.UserModule, auth_module_1.AuthModule],
+        providers: [todo_gateway_1.TodoGateway]
+    })
 ], TodoModule);
 exports.TodoModule = TodoModule;
 //# sourceMappingURL=todo.module.js.map
