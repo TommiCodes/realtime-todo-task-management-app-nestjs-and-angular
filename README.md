@@ -103,3 +103,16 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 10. Import the `MatSnackbarModule` in the AppModule
 11. Create the html, scss and logic for the LoginComponent
 12. Cretate the html, scss and logic for the RegisterComponent
+
+### [Video 5] Nest.js Websockets with Socket.io, Authentication Middleware & testing with Postman
+
+1. Read the docs: https://docs.nestjs.com/websockets/gateways
+2. Install necessary deps: `npm i --save @nestjs/websockets @nestjs/platform-socket.io socket.io`
+3. Create file `/todo-api/auth.middleware.ts`
+4. Implement the middleware there to authenticate the user who is making a request
+5. Add the UserService to the Exports from the user.module
+6. Here you can read more about lifecycles: https://docs.nestjs.com/faq/request-lifecycle#summary
+6. Add the Middleware Consumer to the `app.module.ts` (on top level of our application)
+7. Generate a Websocket Gateway via `cd /todo-api/src/todo` - `nest generate gateway todo`
+8. Import UserModule and AuthModule to TodoModule
+9. Test the gateway with postman
