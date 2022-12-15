@@ -13,6 +13,7 @@ Additional Docker Commands:
 3. Remove all images: `docker rmi -f $(docker images -a -q)`
 4. Remove all containers: `docker rm -vf $(docker ps -a -q)`
 5. Remove all Volumes: `docker-compose down -v`
+6. Clear all `docker system prune -a --volumes`
 
 
 ## Troubleshooting
