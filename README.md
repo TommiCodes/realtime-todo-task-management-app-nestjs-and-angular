@@ -116,3 +116,20 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 7. Generate a Websocket Gateway via `cd /todo-api/src/todo` - `nest generate gateway todo`
 8. Import UserModule and AuthModule to TodoModule
 9. Test the gateway with postman
+
+### [Video 6] Angula - add Jwt Auth handling (with Socket.io & normal http Api)
+1. Read what the "@auth0/angular-jwt" package does: https://www.npmjs.com/package/@auth0/angular-jwt?activeTab=readme
+2. Then install it: `cd angular-frontend` `npm i @auth0/angular-jwt`
+4. Update Angular (https://update.angular.io/?v=14.0-15.0) to work with recent package version: `ng update @angular/core@15 @angular/cli@15` and `ng update @angular/material@15`
+5. Remove all legacy imports after the angular update
+5. Then install it `cd angular-frontend` `npm install socket.io-client`
+6. Add "JwtModule" to Imports from "@auth0/angular-jwt" in "app.module.ts"
+7. Make sure to save the jwt from the response of our login request (user.service.ts - login())
+8. Add a "getLoggedInUser()" to our user.service to get the user from the jwt
+9. Add a "dashboardComponent" to our private module, `cd .\angular-frontend\src\app\private\` & `mkdir components` & `cd components` & `ng g c dashboard`
+9. Add a "PrivateRoutingModule" to our routing module & import it in our "private.module"
+10. Update the "app-routing.module" and lazy load the private Module
+11. Update our "login.component" to navigate to the dashboard after login
+12. NestJS, allow cors in our gateway for our angular requests & update the Auth handling (postman will then not work anymore, because no support for auth so far - to work you have to use a raw connection and send the auth token along)
+12. Add a "todoService" to our private Module `cd .\angular-frontend\src\app\private\` & `mkdir services` & `cd services` & `ng g s todo`
+13. Call our function from the dashboard onInit and see if everything works

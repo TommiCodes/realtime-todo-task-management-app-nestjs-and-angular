@@ -14,4 +14,4 @@ We want to always send the JWT Token that we get from the login request with all
 to authenticate us against our backend api.
 
 ## Acceptance Criteria:
-1.  Token is send when we hit the api & socket.io requests
+1. (finished) Token is send when we hit the api & socket.io requests

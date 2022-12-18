@@ -5,7 +5,7 @@ import {Socket} from "socket.io";
 import {UnauthorizedException} from "@nestjs/common";
 import {UserI} from "../../user/user.interfaces";
 
-@WebSocketGateway({   namespace: 'todos'})
+@WebSocketGateway({   namespace: 'todos', cors: {origin: ['http://localhost:3000', 'http://localhost:4200']}})
 export class TodoGateway implements OnGatewayConnection{
 
   constructor(private userService: UserService, private authService: AuthService) {
@@ -14,9 +14,9 @@ export class TodoGateway implements OnGatewayConnection{
   async handleConnection(socket: Socket) {
     try {
     // if the token is not verified, this will throw and we can catch & disconnect the user
-    const decodedToken = await this.authService.verifyJwt(socket.handshake.headers.authorization);
+    const decodedToken = await this.authService.verifyJwt(socket.handshake.auth.Authorization);
     // if the token is valid, we get the user by id from our database
-      const user: UserI = await this.userService.getOneById(decodedToken.user.id);
+    const user: UserI = await this.userService.getOneById(decodedToken.user.id);
 
       if(!user){
         console.log('disconnect user');
