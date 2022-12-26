@@ -1,0 +1,20 @@
+.item {
+  padding: 20px 10px;
+  border-left: solid 3px;
+}
+
+.complexityEasy {
+  border-left-color: green;
+}
+
+.complexityMedium {
+  border-left-color: blue;
+}
+
+.complexityHard {
+  border-left-color: red;
+}
+
+.done {
+  text-decoration: line-through;
+}

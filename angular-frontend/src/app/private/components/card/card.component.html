@@ -1,0 +1,8 @@
+<div class="item" [ngClass]="{
+  'complexityEasy': item?.complexity === 'EASY',
+  'complexityMedium': item?.complexity === 'MEDIUM',
+  'complexityHard': item?.complexity === 'HARD'
+}">
+  <h3 [ngClass]="{'done': item?.status === 'DONE'}">{{item?.title}}</h3>
+  <p [ngClass]="{'done': item?.status === 'DONE'}">{{item?.subTitle}}</p>
+</div>
