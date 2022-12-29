@@ -117,7 +117,7 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 8. Import UserModule and AuthModule to TodoModule
 9. Test the gateway with postman
 
-### [Video 6] Angula - add Jwt Auth handling (with Socket.io & normal http Api)
+### [Video 6] Angular - add Jwt Auth handling (with Socket.io & normal http Api)
 1. Read what the "@auth0/angular-jwt" package does: https://www.npmjs.com/package/@auth0/angular-jwt?activeTab=readme
 2. Then install it: `cd angular-frontend` `npm i @auth0/angular-jwt`
 4. Update Angular (https://update.angular.io/?v=14.0-15.0) to work with recent package version: `ng update @angular/core@15 @angular/cli@15` and `ng update @angular/material@15`
@@ -133,3 +133,12 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 12. NestJS, allow cors in our gateway for our angular requests & update the Auth handling (postman will then not work anymore, because no support for auth so far - to work you have to use a raw connection and send the auth token along)
 12. Add a "todoService" to our private Module `cd .\angular-frontend\src\app\private\` & `mkdir services` & `cd services` & `ng g s todo`
 13. Call our function from the dashboard onInit and see if everything works
+
+### [Video 7] Angular - Init ToDo List with Drag and Drop
+1. Create a Card Component, `cd .\angular-frontend\src\app\private\components\` `ng g c card`
+2. Create an `interfaces.ts` file in our private module and create a `TodoItem` interface
+3. Add DragDropModule to the imports of our `privateModule`
+4. Implement the example from https://material.angular.io/cdk/drag-drop/examples
+5. Rename CSS Classes
+6. Create TestData with the TodoItem interface, eg.g. 'testData: TodoItem[] = [....]'
+7. Update Styles and Html
