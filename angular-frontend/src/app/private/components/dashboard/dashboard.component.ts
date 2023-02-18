@@ -50,6 +50,7 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit() {
     this.todoService.sendMessage();
+    this.todoService.getTodos();
 
     // refactor in next stories
     this.backlogItems = this.items.filter(item => item.status === 'BACKLOG');
