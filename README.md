@@ -142,3 +142,19 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 5. Rename CSS Classes
 6. Create TestData with the TodoItem interface, eg.g. 'testData: TodoItem[] = [....]'
 7. Update Styles and Html
+
+### [Video 8] NestJS/Angular - handle Todos with Websocket Connection
+1. Create a todo interface file in the todo module `src/todo/todo.interfaces.ts`
+2. Create the Todo Interface
+3. Create a folder entities in our todo module `cd src/todo` `mkdir entities`
+4. Create a file todo.entity.ts `cd entities` `touch todo.entity.ts`
+5. Create the todo.entity.ts
+6. Create the todo.service to handle the todos and save them in the database
+6. Create a interface for the connection against our service in our `todo.interfaces.ts` and also add a `connected-user.entity.ts`
+   to handle the connections of a user, so that we can send push messages
+7. Add a `connection.service.ts` to implement the logic for handling and saving our connections
+8. Save the connection to our database when a user connects against our gateway (in our gateway.handleConnection)
+9. Add the gateway.onHandleDisconnect
+10. Add in our Angular frontend a listener to the 'todos' event with socket.io
+11. Add a setup Service in Nestjs to add some todos on startup to our database
+12. Check that when we connect with our Frontend against the gateway, that we print the Todos for the 'todos' event to our console
