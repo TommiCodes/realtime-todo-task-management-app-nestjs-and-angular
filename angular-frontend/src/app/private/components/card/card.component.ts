@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {TodoItem} from "../../interfaces";
+import {TodoItem} from "../../private-module.interfaces";
 
 @Component({
   selector: 'app-card',

@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {io} from "socket.io-client";
 import {tokenGetter} from "../../app.module";
-import {TodoItem} from "../interfaces";
+import {TodoItem} from "../private-module.interfaces";
 
 @Injectable({
   providedIn: 'root'

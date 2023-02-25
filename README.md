@@ -94,7 +94,7 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 2. Remove old TestService
 3. Create Diretories in `angular-frontend/src/app/public`: `/validators`, `/components`, `/services`
 4. Create a `public-routing.module.ts` for all routes in our public module
-5. Create a `public.interfaces.ts` for our interfaces
+5. Create a `public.private-module.interfaces.ts` for our interfaces
 5. Create the components `LoginComponent` and `RegisterComponent` via the cli with the command `ng generate component login` and `ng generate component register`
 6. Update the "public-routing.module.ts" and the "app-routing.module.ts"
 7. Create the Service `UserService` to make the login and register requests against the api `ng generate service user`
@@ -136,7 +136,7 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 
 ### [Video 7] Angular - Init ToDo List with Drag and Drop
 1. Create a Card Component, `cd .\angular-frontend\src\app\private\components\` `ng g c card`
-2. Create an `interfaces.ts` file in our private module and create a `TodoItem` interface
+2. Create an `private-module.interfaces.ts` file in our private module and create a `TodoItem` interface
 3. Add DragDropModule to the imports of our `privateModule`
 4. Implement the example from https://material.angular.io/cdk/drag-drop/examples
 5. Rename CSS Classes
@@ -144,13 +144,13 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 7. Update Styles and Html
 
 ### [Video 8] NestJS/Angular - handle Todos with Websocket Connection
-1. Create a todo interface file in the todo module `src/todo/todo.interfaces.ts`
+1. Create a todo interface file in the todo module `src/todo/todo.private-module.interfaces.ts`
 2. Create the Todo Interface
 3. Create a folder entities in our todo module `cd src/todo` `mkdir entities`
 4. Create a file todo.entity.ts `cd entities` `touch todo.entity.ts`
 5. Create the todo.entity.ts
 6. Create the todo.service to handle the todos and save them in the database
-6. Create a interface for the connection against our service in our `todo.interfaces.ts` and also add a `connected-user.entity.ts`
+6. Create a interface for the connection against our service in our `todo.private-module.interfaces.ts` and also add a `connected-user.entity.ts`
    to handle the connections of a user, so that we can send push messages
 7. Add a `connection.service.ts` to implement the logic for handling and saving our connections
 8. Save the connection to our database when a user connects against our gateway (in our gateway.handleConnection)

@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+
+  mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+}

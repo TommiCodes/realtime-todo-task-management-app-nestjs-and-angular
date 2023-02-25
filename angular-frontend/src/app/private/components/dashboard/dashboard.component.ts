@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoService} from "../../services/todo.service";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
-import {TodoItem} from "../../interfaces";
+import {TodoItem} from "../../private-module.interfaces";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {CreateTodoComponent} from "../create-todo/create-todo.component";
+import {todoExampleItems} from "../../private-module.constants";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,42 +13,15 @@ import {TodoItem} from "../../interfaces";
 })
 export class DashboardComponent implements OnInit{
 
+  createTodoComponentDialogRef: MatDialogRef<CreateTodoComponent> | undefined;
+
   backlogItems: TodoItem[] = [];
   todoItems: TodoItem[] = [];
   doneItems: TodoItem[] = [];
 
-  items: TodoItem[] = [
-    {
-      title: 'Hard Item',
-      complexity: 'HARD',
-      subTitle: 'Hard Subtitle',
-      text: 'Hard Text',
-      status: 'BACKLOG'
-    },
-    {
-      title: 'Medium Item',
-      complexity: 'MEDIUM',
-      subTitle: 'Medium Subtitle',
-      text: 'Medium Text',
-      status: 'TODO'
-    },
-    {
-      title: 'Easy Item',
-      complexity: 'EASY',
-      subTitle: 'Easy Subtitle',
-      text: 'Easy Text',
-      status: 'DONE'
-    },
-    {
-      title: 'Example Item',
-      complexity: 'MEDIUM',
-      subTitle: 'Example Subtitle',
-      text: 'Example Text',
-      status: 'DONE'
-    }
-  ]
+  items: TodoItem[] = todoExampleItems;
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private matDialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -69,6 +45,13 @@ export class DashboardComponent implements OnInit{
         event.currentIndex,
       );
     }
+  }
+
+  onShowCreateTodoDialog() {
+    this.createTodoComponentDialogRef = this.matDialog.open(CreateTodoComponent, {
+      minHeight: '400px',
+      minWidth: '300px'
+    });
   }
 
 }
