@@ -158,3 +158,13 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 10. Add in our Angular frontend a listener to the 'todos' event with socket.io
 11. Add a setup Service in Nestjs to add some todos on startup to our database
 12. Check that when we connect with our Frontend against the gateway, that we print the Todos for the 'todos' event to our console
+
+### [Video 9] Angular - create Todos /w Reactive Form & Dialog
+1. Create new Component `ng g c create-todo` in our Angular Project &
+   don't forget ro reference it in the imports of the private module
+2. Add ElementRef for the `create-todo.component` to our dashboard, as well as a button to open the ref
+3. Create FormGroup in 'create-todo.component'
+4. Create form in template für 'create-todo.component'
+5. Log out Form onSubmit()
+6. Rename `interfaces.ts` to `private-module.interfaces.ts` and create also
+   a const file `private-module.consts.ts` and refactor a bit
