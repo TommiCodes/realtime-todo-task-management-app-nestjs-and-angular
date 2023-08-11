@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Complexity, CreateTodoFormGroup, Status} from "../../private-module.interfaces";
+import {Form, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Complexity, CreateTodoFormGroup, Status, TodoItem} from "../../private-module.interfaces";
 import {complexityValues, statusValues} from "../../private-module.constants";
+import {TodoService} from "../../services/todo.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-todo',
@@ -21,9 +23,21 @@ export class CreateTodoComponent {
     status: new FormControl('BACKLOG', [Validators.required])
   });
 
+  constructor(private todoService: TodoService, private dialogRef: MatDialogRef<CreateTodoComponent>) {
+  }
+
   onCreateTodo() {
     if (this.form.valid) {
-      console.log(this.form.value);
+      const todo: TodoItem = {
+        title: this.title.value,
+        subTitle: this.subTitle.value,
+        text: this.text.value,
+        complexity: this.complexity.value,
+        status: this.status.value
+      }
+
+      this.todoService.saveTodo(todo);
+      this.dialogRef.close();
     }
   }
 
@@ -41,6 +55,14 @@ export class CreateTodoComponent {
 
   get text(): FormControl {
     return this.form.get('text') as FormControl;
+  }
+
+  get complexity(): FormControl {
+    return this.form.get('complexity') as FormControl;
+  }
+
+  get status(): FormControl {
+    return this.form.get('status') as FormControl;
   }
 
 }

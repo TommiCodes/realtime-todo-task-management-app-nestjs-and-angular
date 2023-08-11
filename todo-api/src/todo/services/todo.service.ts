@@ -18,4 +18,17 @@ export class TodoService {
   saveAll(todoItems: TodoItem[]): Promise<TodoItem[]> {
     return this.todoRepository.save(todoItems);
   }
+
+  save(todoItem: TodoItem): Promise<TodoItem> {
+    return this.todoRepository.save(todoItem);
+  }
+
+  update(todoItem: TodoItem): Promise<TodoItem> {
+    this.todoRepository.update(todoItem.id, todoItem);
+    return this.todoRepository.findOne({
+      where: {
+        id: todoItem.id,
+      },
+    });
+  }
 }

@@ -32,4 +32,8 @@ export class ConnectionService {
   async deleteAll() {
     await this.connectionRepo.createQueryBuilder().delete().execute();
   }
+
+  async findAll(): Promise<ConnectionI[]> {
+    return this.connectionRepo.find();
+  }
 }

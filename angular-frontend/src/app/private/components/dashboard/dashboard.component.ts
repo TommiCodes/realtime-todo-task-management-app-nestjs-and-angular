@@ -5,6 +5,7 @@ import {TodoItem} from "../../private-module.interfaces";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateTodoComponent} from "../create-todo/create-todo.component";
 import {todoExampleItems} from "../../private-module.constants";
+import {Observable, tap} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -19,19 +20,23 @@ export class DashboardComponent implements OnInit{
   todoItems: TodoItem[] = [];
   doneItems: TodoItem[] = [];
 
-  items: TodoItem[] = todoExampleItems;
+  items$: Observable<TodoItem[]> = this.todoService.todoItems$;
 
   constructor(private todoService: TodoService, private matDialog: MatDialog) {
   }
 
   ngOnInit() {
-    this.todoService.sendMessage();
     this.todoService.getTodos();
+    this.todoService.getAddedTodo();
+    this.todoService.getUpdatedTodo();
 
-    // refactor in next stories
-    this.backlogItems = this.items.filter(item => item.status === 'BACKLOG');
-    this.todoItems = this.items.filter(item => item.status === 'TODO');
-    this.doneItems = this.items.filter(item => item.status === 'DONE');
+    this.items$.pipe(
+      tap((items) => {
+        this.backlogItems = items.filter(item => item.status === 'BACKLOG');
+        this.todoItems = items.filter(item => item.status === 'TODO');
+        this.doneItems = items.filter(item => item.status === 'DONE');
+      })
+    ).subscribe();
   }
 
   drop(event: CdkDragDrop<TodoItem[]>) {
@@ -45,6 +50,9 @@ export class DashboardComponent implements OnInit{
         event.currentIndex,
       );
     }
+
+    const updatedItem: TodoItem = event.container.data[event.currentIndex];
+    this.todoService.updateTodo(updatedItem, event.container.id);
   }
 
   onShowCreateTodoDialog() {

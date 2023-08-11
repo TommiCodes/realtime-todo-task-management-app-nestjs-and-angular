@@ -1,6 +1,6 @@
 import {
   OnGatewayConnection,
-  OnGatewayDisconnect,
+  OnGatewayDisconnect, SubscribeMessage,
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
@@ -11,6 +11,7 @@ import { UnauthorizedException } from '@nestjs/common';
 import { UserI } from '../../user/user.interfaces';
 import { ConnectionService } from '../services/connection.service';
 import { TodoService } from '../services/todo.service';
+import {ConnectionI, TodoItem} from "../todo.interface";
 
 @WebSocketGateway({
   namespace: 'todos',
@@ -66,6 +67,30 @@ export class TodoGateway implements OnGatewayConnection, OnGatewayDisconnect {
     // remove the connection from our db
     await this.connectionService.deleteBySocketId(socket.id);
     socket.disconnect();
+  }
+
+  @SubscribeMessage('addTodo')
+  async onAddTodo(socket: Socket, todoItem: TodoItem) {
+    // save new todoItem to our Database
+    const createdTodoItem: TodoItem = await this.todoService.save(todoItem);
+
+    // publish the new totoItem to all connected Users
+    const connections: ConnectionI[] = await this.connectionService.findAll();
+    for (const connection of connections) {
+      this.server.to(connection.socketId).emit('addedTodo', createdTodoItem);
+    }
+  }
+
+  @SubscribeMessage('updateTodo')
+  async onUpdateTodo(socket: Socket, todoItem: TodoItem) {
+    // update todoItem in Database
+    const updatedTodoItem: TodoItem = await this.todoService.update(todoItem);
+
+    // publish the updatedItem to all connected Users
+    const connections: ConnectionI[] = await this.connectionService.findAll();
+    for (const connection of connections) {
+      this.server.to(connection.socketId).emit('updatedTodo', updatedTodoItem);
+    }
   }
 
   private disconnect(socket: Socket) {
