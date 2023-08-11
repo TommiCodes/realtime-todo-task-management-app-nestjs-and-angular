@@ -1,30 +1,28 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
-import {Complexity, Status} from "../todo.interface";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Complexity, Status } from '../todo.interface';
 
 @Entity()
 export class Todo {
+  @PrimaryGeneratedColumn()
+  id: number;
 
+  @Column()
+  status: Status;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  title: string;
 
-    @Column()
-    status: Status;
+  @Column()
+  subTitle: string;
 
-    @Column()
-    title: string;
+  @Column()
+  text: string;
 
-    @Column()
-    subTitle: string;
+  @Column()
+  complexity: Complexity;
 
-    @Column()
-    text: string;
-
-    @Column()
-    complexity: Complexity;
-
-/*    createdBy?: UserI;
-    updatedBy?: UserI;
-    createdAt?: Date;
-    updatetAt?: Date;*/
+  /*    createdBy?: UserI;
+        updatedBy?: UserI;
+        createdAt?: Date;
+        updatetAt?: Date;*/
 }
