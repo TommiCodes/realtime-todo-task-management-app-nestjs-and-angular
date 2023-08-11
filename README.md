@@ -168,3 +168,26 @@ The Login Endpoint will return a JWT, which will then be attached to every reque
 5. Log out Form onSubmit()
 6. Rename `interfaces.ts` to `private-module.interfaces.ts` and create also
    a const file `private-module.consts.ts` and refactor a bit
+
+### [Video 10] NestJS & Angular - handle Events & messages for Todos
+#### Handle Todo Create
+1. NestJS: Listen @SubscribeMessage('addTodoItem') Event and create a todoItem if the Event is received
+   1. Add Listener in todo.gateway.ts
+   2. Add save Function to our todo.service.ts
+   3. Add findAll() function to connection.service.ts
+   4. Distribute the createdTodoItem to all connected Clients/users
+2. Angular
+   1. Add a saveTodo() method to our todo.service.ts and emit an event matching to our todo.gateway
+   2. Call this saveTodo() when we hit save in our create-todo.component
+   3. Add a listener to the 'addedTodo' Event so we can catch new Todos and subscribe to it in our dashboard
+   4. Add a behaviorSubject to our todo.service, so that we can subscribe in our dashboard to our items
+   5. Then in our dashboard component fix some stuff, for example how to filter the items
+#### Handle Todo Update
+1. NestJS:
+   1. Add Listener in todo.gateway.ts and emit the updatedTodo after update to all clients
+   2. Add update Function in todo.service.ts
+2. Angular:
+   1. Add a listener to our todo.service.ts
+   2. Add a function to send a todoUpdate to our api
+   3. call the todo.service.ts in our dashboard.component, so that we receive updates from our api
+   4. call the updateTodo from our service after our drop() function in the dashboard.component
