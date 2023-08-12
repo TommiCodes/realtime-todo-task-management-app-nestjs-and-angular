@@ -1,6 +1,6 @@
 # Video 07 - Angular -- Init Todo List with Drag and Drop
 
-Video Link: <tbd>
+Video Link: https://youtu.be/H0AJg0n0iE0
 
 ## Prerequisites:
 - Angular Cli

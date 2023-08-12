@@ -1,6 +1,6 @@
 # Video 10 - Angular & NestJs-- Connect TODOItems in Angular + NestJS via Socket.io
 
-Video Link: <tbd>
+Video Link: https://youtu.be/EdDmN5UAHkk
 
 ## Prerequisites:
 - Angular Cli

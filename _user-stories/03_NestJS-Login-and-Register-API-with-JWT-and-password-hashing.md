@@ -1,6 +1,6 @@
 # Video 03 - NestJS Login and Registration Endpoints (JWT and Password hashing)
 
-Video Link: <tbd>
+Video Link: https://youtu.be/PYwXs2lqqAE
 
 ## Prerequisites:
 - Angular Cli

@@ -1,6 +1,6 @@
 # Video 06 - Angular -- add JWT Auth Handling (Socket.io & http api)
 
-Video Link: <tbd>
+Video Link: https://youtu.be/gu_GWFLxJCI
 
 ## Prerequisites:
 - Angular Cli

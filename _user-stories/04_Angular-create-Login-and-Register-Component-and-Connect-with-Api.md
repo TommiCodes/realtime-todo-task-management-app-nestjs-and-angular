@@ -1,6 +1,6 @@
 # Video 04 - Angular create Login & Register Components & Logic and connect to the api
 
-Video Link: <tbd>
+Video Link: https://youtu.be/QnrqfpU6Qx0
 
 ## Prerequisites:
 - Angular Cli

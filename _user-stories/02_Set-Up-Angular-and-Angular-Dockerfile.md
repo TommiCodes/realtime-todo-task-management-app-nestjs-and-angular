@@ -1,6 +1,6 @@
 # Video 02 - Setup Angular with Dockerfile & make an API Connection to our Backend
 
-Video Link: <tbd>
+Video Link: https://youtu.be/8jF6VAyZsYw
 
 ## Prerequisites:
 - Angular Cli

@@ -1,6 +1,6 @@
 # Video 08 - NestJS and Angular -- Add Todo Entity & Connect w/ FE
 
-Video Link: <tbd>
+Video Link: https://youtu.be/lWllBdKUzwQ
 
 ## Prerequisites:
 - Angular Cli

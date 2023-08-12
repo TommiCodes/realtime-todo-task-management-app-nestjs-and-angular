@@ -1,6 +1,6 @@
 # Video 01 - Setup NestJS API & docker-compose and establish a DB connection
 
-Video Link: <tbd>
+Video Link: https://youtu.be/80x0yaerbVE
 
 ## Prerequisites:
 - NestJS Cli

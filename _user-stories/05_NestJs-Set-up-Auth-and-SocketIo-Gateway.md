@@ -1,6 +1,6 @@
 # Video 05 - NestJs Set up Auth for API, create Socket.io Gateway and test it with Postman
 
-Video Link: <tbd>
+Video Link: https://youtu.be/GT7FLks1kc8
 
 ## Prerequisites:
 - Angular Cli
